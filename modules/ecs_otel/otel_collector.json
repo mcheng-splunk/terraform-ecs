@@ -1,0 +1,65 @@
+[
+    {
+        "cpu": 0,
+        "environment": [
+        {
+            "name": "ECS_METADATA_EXCLUDED_IMAGES",
+            "value": "[\"quay.io/signalfx/splunk-otel-collector\"]"
+        },
+        {
+            "name": "SPLUNK_ACCESS_TOKEN",
+            "value": "YOU SPLUNK TOKEN"
+        },
+        {
+            "name": "SPLUNK_CONFIG",
+            "value": "/etc/otel/collector/ecs_ec2_config.yaml"
+        },
+        {
+            "name": "SPLUNK_REALM",
+            "value": "<<YOU SPLUNK REALM"
+        },
+        {
+            "name": "HOST_PROC",
+            "value": "/hostfs/proc"
+        },
+        {
+            "name": "HOST_SYS",
+            "value": "/hostfs/sys"
+        },
+        {
+            "name": "HOST_ETC",
+            "value": "/hostfs/etc"
+        },
+        {
+            "name": "HOST_VAR",
+            "value": "/hostfs/var"
+        },
+        {
+            "name": "HOST_RUN",
+            "value": "/hostfs/run"
+        },
+        {
+            "name": "HOST_DEV",
+            "value": "/hostfs/dev"
+        }
+        ],
+        "mountPoints": [
+        {
+            "readOnly": true,
+            "containerPath": "/hostfs",
+            "sourceVolume": "hostfs"
+        }
+        ],
+        "memory": 512,
+        "volumesFrom": [],
+        "image": "quay.io/signalfx/splunk-otel-collector:latest",
+        "essential": true,
+        "name": "splunk-otel-collector",
+        "portMappings": [
+            {
+              "protocol"      : "tcp",
+              "containerPort" : 9080
+            }
+        ]
+    }
+]
