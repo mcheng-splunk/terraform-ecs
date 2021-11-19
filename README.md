@@ -273,11 +273,11 @@ When deploying manually we can see if the new container has started or is stuck 
 
 * Run following commands to create AWS integration
 
-  * terraform init
-  * terraform plan - verify there are no errors
-  * terraform apply - Type yes as confirmation
+  * terraform init -var-file=ecs.tfvars
+  * terraform plan -var-file=ecs.tfvars         - verify there are no errors
+  * terraform apply -var-file=ecs.tfvars        - Type yes as confirmation
 
 * Run following command to delete existing AWS integration
 
-  * terraform destroy - Type yes as confirmation
+  * terraform destroy -var-file=ecs.tfvars      - Type yes as confirmation
 
